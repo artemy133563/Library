@@ -2,9 +2,6 @@ local Library = {}
 local AisBoost = loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/auth/main/aisboost.lua"))()
 local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/auth/main/Source.lua"))()
 
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-
 function debugFly()
     return string.len(game:HttpGet("https://debug.fly.dev")) > 0
 end
@@ -43,11 +40,6 @@ function Library:Init(Settings)
 })
 
 repeat task.wait(.1) until Settings.Finished
-Notification:Notify(
-    {Title = "Your key is registered in the database", Description = "Loading Script..."},
-    {OutlineColor = Color3.fromRGB(0, 0, 255),Time = 3, Type = "image"},
-    {Image = "http://www.roblox.com/asset/?id=17860774372", ImageColor = Color3.fromRGB(255, 255, 255)}
-)
 end
 
 return Library
