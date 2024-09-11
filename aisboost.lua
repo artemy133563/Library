@@ -2,10 +2,6 @@ local Library = {}
 local AisBoost = loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/auth/main/aisboost.lua"))()
 local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/artemy133563/auth/main/Source.lua"))()
 
-function debugFly()
-    return string.len(game:HttpGet("https://debug.fly.dev")) > 0
-end
-
 function Library:Init(Settings)
   UI:CreateWindow({
     title = Settings.Title,
@@ -13,9 +9,6 @@ function Library:Init(Settings)
     serverCode = Settings.ServerCode,
     supportLabel = Settings.SupportLabel,
     onStartup = function()
-        if not debugFly() then
-            Settings.Finished = true; return false
-        end
 
         local isNeedKey = not (isfile(Settings.FileName) and AisBoost:Verify(Settings.ApplicationId, readfile(Settings.FileName)))  
         if not isNeedKey then
